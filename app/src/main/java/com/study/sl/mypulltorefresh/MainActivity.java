@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
 
     private PullToRefreshListView pullToRefresh;
     private List<String> mDatas;
-    private int count = 1;   // 数据角标索引
+    private int rowNo = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pullToRefresh = (PullToRefreshListView) findViewById(R.id.pull_to_refresh);
+        pullToRefresh = findViewById(R.id.pull_to_refresh);
         mDatas = new ArrayList<>();
 
         LoadDatas();
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void LoadDatas() {
         for (int i = 0; i < 10; i++) {
-            mDatas.add(String.format(Locale.CHINA, "下拉列表中的第%d条数据", count));
-            count++;
+            mDatas.add(String.format(Locale.CHINA, "下拉列表中的第%d条数据", rowNo));
+            rowNo++;
         }
     }
 
